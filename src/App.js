@@ -3,6 +3,21 @@ import { Filters } from './components/Filters/Filters';
 import { Products } from './components/Products/Products';
 import { ShoppingCart } from './components/ShoppingCart/ShoppingCart';
 import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+  
+`;
+
 
 
 const AppContainer = styled.div`
@@ -25,30 +40,51 @@ const products = [
     id: 2,
     name: "Satelite",
     value: 5000.0,
-    imageUrl: "https://picsum.photos/100/200?a=3",
+    imageUrl: "https://picsum.photos/200/200?a=2",
   },
   {
     id: 3,
     name: "Traje Espacial ",
     value: 500.0,
-    imageUrl: "https://picsum.photos/200/200?a=4",
+    imageUrl: "https://picsum.photos/200/200?a=3",
   },
   {
     id: 4,
     name: "Meteorito",
     value: 10000.0,
-    imageUrl: "https://picsum.photos/200/200?a=5",
+    imageUrl: "https://picsum.photos/200/200?a=4",
   }
 ]
  
 
 
-export default function App() {
-  return (
-    <AppContainer>
-        <Filters/>
-        <Products products={products} />
-        <ShoppingCart/>
-    </AppContainer>
-  )
+
+export default class App extends React.Component {
+  state = {
+    minFilter: '100',
+    maxFilter: '1000',
+    nameFilter: 'satelite',
+  }
+
+  render() {
+    return (
+      <div>
+      <GlobalStyle/>
+        <AppContainer>
+          <Filters
+          minFilter={this.state.minFilter}
+          maxFilter={this.state.maxFilter}
+          nameFilter={this.state.nameFilter}
+          />
+          <Products 
+          products={products}
+          minFilter={this.state.minFilter}
+          maxFilter={this.state.maxFilter}
+          nameFilter={this.state.nameFilter}
+          />
+          <ShoppingCart/>
+        </AppContainer>
+    </div>
+    )
+  }
 }
