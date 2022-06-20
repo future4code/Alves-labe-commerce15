@@ -12,35 +12,12 @@ const FiltersInput = styled.div`
 
 const FiltersContainer = styled.div`
     border: 5px solid blue;
-    height: 100vh; //tela inteira
+    height: 100vh; 
     width: 250px;
-    box-sizing: border-box; //impede da pagina ter scrool (pq geralmente ela soma borda + altura)
-
+    box-sizing: border-box; 
 
 `;
 
-const arrayProducts= [
-    {
-      id: 1,
-      name: "Foguete da Missão Apollo 11",
-      value: 10000,
-      imageUrl: "https://picsum.photos/200/200",
-    },
-
-    {
-      id: 2,
-      name: "Satélites antigos",
-      value: 10000,
-      imageUrl: "https://picsum.photos/200/200",
-    },
-
-    {
-      id: 3,
-      name: "Satélites antigos",
-      value: 5000,
-      imageUrl: "https://picsum.photos/200/200",
-    }
-]
 
 function FiltroNumeros(props) {
     
@@ -112,12 +89,3 @@ class Filters extends React.Component {
 } 
 
 export default Filters
-
-
-
-
-
-
-
-
-
